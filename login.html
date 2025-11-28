@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/style-login.css" />
+  <title>Iniciar Sesión</title>
+</head>
+<body>
+  <div class="container-login" role="dialog" aria-labelledby="login-title" aria-describedby="login-desc">
+    <p id="login-title" class="login-banner">Iniciar sesión</p>
+
+    <form class="login-form" id="loginForm" novalidate>
+      <div class="form-row">
+        <label for="username" class="sr-only">Usuario o correo</label>
+        <input id="username" name="username" type="text" placeholder="Usuario" required autocomplete="username" />
+      </div>
+
+      <div class="form-row">
+        <label for="password" class="sr-only">Contraseña</label>
+        <input id="password" name="password" type="password" placeholder="Contraseña" required autocomplete="current-password" />
+      </div>
+
+      <div class="form-row">
+        <button type="submit" class="btn-login">Iniciar sesión</button>
+      </div>
+
+      <div id="mensaje" style="margin-top: 10px; text-align: center; font-weight: bold;"></div>
+    </form>
+
+  </div>
+
+  <script type="module">
+    const form = document.getElementById('loginForm');
+    const mensajeDiv = document.getElementById('mensaje');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        // envio de datos al servidor 
+        const response = await fetch('http://localhost:3000/api/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          // Guardar token en localStorage
+          localStorage.setItem('userToken', data.token);
+          mensajeDiv.textContent = data.message;
+          mensajeDiv.style.color = 'green';
+          
+          // Redirigir al dashboard después de 1 segundo
+          setTimeout(() => {
+            window.location.href = '/index.html';
+          }, 1500);
+        } else {
+          mensajeDiv.textContent = data.message;
+          mensajeDiv.style.color = 'red';
+        }
+      } catch (error) {
+        mensajeDiv.textContent = 'Error al conectar con el servidor';
+        mensajeDiv.style.color = 'red';
+        console.error('Error:', error);
+      }
+    });
+  </script>
+</body>
+</html>

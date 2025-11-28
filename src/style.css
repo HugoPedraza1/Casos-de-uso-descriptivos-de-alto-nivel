@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #f7f7f7;
+    color: #222;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 260px;
+    background: #b30000;
+    color: white;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.subtitle {
+    margin-bottom: 25px;
+    opacity: 0.8;
+}
+
+.menu-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.menu-btn:hover,
+.menu-btn.active {
+    background: #ff4d4d;
+}
+
+/* MAIN */
+.main {
+    flex: 1;
+    padding: 35px;
+    overflow-y: auto;
+}
+
+.title {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* ORDER BOX */
+.order-box {
+    display: flex;
+    gap: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+}
+
+input, select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 6px;
+}
+
+
+.add-btn {
+    background: #b30000;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: auto;
+}
+
+.add-btn:hover {
+    background: #ff3333;
+}
+
+.ticket-box {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.ticket-box h2 {
+    margin-bottom: 10px;
+}
+
+#ticket {
+    min-height: 120px;
+    margin-bottom: 10px;
+}
+
+.calc-btn,
+.new-btn,
+.print-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    color: white;
+}
+
+.calc-btn { background: #b30000; }
+.calc-btn:hover { background: #ff3333; }
+
+.new-btn { background: #555; }
+.new-btn:hover { background: #777; }
+
+.print-btn { background: #009933; }
+.print-btn:hover { background: #00cc66; }
+
+.cambio {
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.ticket-actions {
+    margin-top: 15px;
+}
+
+
+.logout-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.logoutBtn {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+
+.logoutBtn:hover {
+    background-color: #c0392b;
+}
+}
